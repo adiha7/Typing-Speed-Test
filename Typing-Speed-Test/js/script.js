@@ -8,7 +8,7 @@ cpmTag = document.querySelector(".cpm span");
 
 let score = 0;
 let timer,
-maxTime = 30,
+maxTime = 60,
 timeLeft = maxTime,
 charIndex = mistakes = isTyping = 0;
 
@@ -52,7 +52,7 @@ function initTyping() {
         characters.forEach(span => span.classList.remove("active"));
         characters[charIndex].classList.add("active");
 
-        let wpm = Math.round(((charIndex - mistakes)  / 5) / (maxTime - timeLeft) * 30);
+        let wpm = Math.round(((charIndex - mistakes)  / 5) / (maxTime - timeLeft) * 60);
         wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
         
         wpmTag.innerText = wpm;
@@ -61,7 +61,7 @@ function initTyping() {
     } else {
         clearInterval(timer);
         inpField.value = "";
-        let wpm = Math.round(((charIndex - mistakes)  / 5) / maxTime * 30);
+        let wpm = Math.round(((charIndex - mistakes)  / 5) / maxTime * 60);
         wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
         score = wpm;
         wpmTag.innerText = wpm;
@@ -78,7 +78,7 @@ function initTimer() {
         timeTag.innerText = timeLeft;
 
         // calculate the user's score
-        let wpm = Math.round(((charIndex - mistakes)  / 5) / (maxTime - timeLeft) * 30);
+        let wpm = Math.round(((charIndex - mistakes)  / 5) / (maxTime - timeLeft) * 60);
         wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
         score = wpm;
 
